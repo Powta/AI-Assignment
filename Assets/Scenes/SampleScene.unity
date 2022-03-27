@@ -326,8 +326,8 @@ GameObject:
   - component: {fileID: 630508684}
   - component: {fileID: 630508683}
   - component: {fileID: 630508682}
-  - component: {fileID: 630508681}
   - component: {fileID: 630508685}
+  - component: {fileID: 630508681}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 630508680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 156c4d6322962ef4fb0dd1421c1cacb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 57ffa6667fa9518498708003300a2d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ball_pos: 0
