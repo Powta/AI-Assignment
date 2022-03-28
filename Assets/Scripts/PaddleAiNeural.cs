@@ -6,9 +6,13 @@ using UnityEngine;
 
 public class PaddleAiNeural : MonoBehaviour
 {
-
     //RigidBody
     private Rigidbody2D myRb;
+
+    public float speed;
+
+    public int randomNum;
+
     //The number of nodes we have for each layer
     static int inputLayer=4, hiddenLayer=3, outputLayer=3;
 
@@ -33,7 +37,7 @@ public class PaddleAiNeural : MonoBehaviour
         //Randomize the weights in between input and hidden layer
         for(int i=0;i<inputLayer;i++)
         {
-            for(int j=0;j<hiddenLayer;i++)
+            for(int j=0;j<hiddenLayer;j++)
             {
                 weightsIH[i, j] = Random.Range(-0.5f, 0.5f);
             }
@@ -42,7 +46,7 @@ public class PaddleAiNeural : MonoBehaviour
         //Randomize the weights in between input and hidden layer
         for (int i = 0; i < hiddenLayer; i++)
         {
-            for (int j = 0; j < outputLayer; i++)
+            for (int j = 0; j < outputLayer; j++)
             {
                 weightsHO[i, j] = Random.Range(-0.5f, 0.5f);
             }
@@ -65,13 +69,25 @@ public class PaddleAiNeural : MonoBehaviour
     //called everyframe of of the game
     private void Update()
     {
+        speed = GameObject.Find("Ball").GetComponent<Ball>().currentSpeed;
         feedForward();
 
-        for(int i=0;i<outputLayerNodes.GetLength(0);i++)
-        {
+        //for(int i=0;i<outputLayerNodes.GetLength(0);i++)
+        //{
 
-        }
-       
+        //}
+        randomNum=Random.Range(0, 100);
+
+
+        Up(randomNum,outputLayerNodes[0, 0]);
+        Down(randomNum,outputLayerNodes[1, 0]);
+
+        Debug.Log(outputLayerNodes[0, 0].ToString());
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     //The neural network process
@@ -107,12 +123,12 @@ public class PaddleAiNeural : MonoBehaviour
         int cols1 = matrix1.GetLength(1);
 
         //rows and collumns of the 2nd matrix
-        int rows2 = matrix1.GetLength(0);
-        int cols2 = matrix1.GetLength(1);
+        int rows2 = matrix2.GetLength(0);
+        int cols2 = matrix2.GetLength(1);
 
-        float[,] result = new float[rows2, cols2];
-        int rowsResult = matrix1.GetLength(0);
-        int colsResult = matrix1.GetLength(1);
+        float[,] result = new float[rows1, cols2];
+        int rowsResult = result.GetLength(0);
+        int colsResult = result.GetLength(1);
 
         for(int i=0;i<rowsResult;i++)
         {
@@ -184,18 +200,44 @@ public class PaddleAiNeural : MonoBehaviour
     }
 
     //moves the paddle up
-    private void Up()
+    private void Up(float randomNumber,float chance)
     {
-        
+        chance = chance * 100;
+        if(randomNumber<=chance)
+        {
+            transform.position += new Vector3(0f, speed * Time.deltaTime, 0f);
+        }
+
+        else
+        {
+
+        }
     }
     //moves the paddle down
-    private void Down()
+    private void Down(float randomNumber,float chance)
     {
+        chance = chance * 100;
+        if (randomNumber <= chance)
+        {
+            transform.position -= new Vector3(0f, speed * Time.deltaTime, 0f);
+        }
 
+        else
+        {
+
+        }
     }
     //stops movement
-    private void stop()
+    private void stop(float chance)
     {
+        if (chance > 0.5)
+        {
+           
+        }
 
+        else
+        {
+
+        }
     }
 }

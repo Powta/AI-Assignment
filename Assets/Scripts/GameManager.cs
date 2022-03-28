@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     public void P2Scored()
     {
         p2Score++;
-        p2Text.GetComponent<Text>().text = p1Score.ToString();
+        p2Text.GetComponent<Text>().text = p2Score.ToString();
         ball.GetComponent<Ball>().Reset();
     }
 }
