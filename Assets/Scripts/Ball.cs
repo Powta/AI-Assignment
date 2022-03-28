@@ -7,8 +7,11 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float speed;
+    public float currentSpeed;
+    private float maxSpeed=10;
     private Rigidbody2D myRb;
     public Vector3 startPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +22,8 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentSpeed = Mathf.Abs(myRb.velocity.y);
+  
     }
 
     private void Launch()
@@ -41,7 +45,7 @@ public class Ball : MonoBehaviour
     {
         if(collision.gameObject.tag=="Paddle")
         {
-            myRb.velocity = new Vector2(myRb.velocity.x * 1.1f, myRb.velocity.y * 1.1f);
+            myRb.velocity *= new Vector2 (1.05f, 1.05f);
         }
     }
 }

@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 630508681}
   m_Layer: 0
   m_Name: Player 2
-  m_TagString: Untagged
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -460,6 +460,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball_pos: 0
+  speed: 0
+  correctInputUp: 0
+  correctInputDown: 0
 --- !u!1 &721103427
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  currentSpeed: 0
   startPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &878812455
 GameObject:
@@ -768,7 +772,7 @@ GameObject:
   - component: {fileID: 1419922925}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

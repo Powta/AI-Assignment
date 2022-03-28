@@ -18,6 +18,7 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speed = GameObject.Find("Ball").GetComponent<Ball>().currentSpeed;
         movement = Input.GetAxisRaw("Vertical");
         myRb.velocity = new Vector2(myRb.velocity.x, movement * speed);
     }
